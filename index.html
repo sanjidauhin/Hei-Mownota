@@ -18,36 +18,31 @@
         }
         .heading {
             margin-bottom: 20px;
+            color: #0066ff; /* Blue */
         }
         .images-container {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
             display: flex;
             justify-content: space-between;
             padding: 10px;
-            z-index: -1; /* Ensure images are below other content */
+            margin-top: 20px;
         }
         .image-box {
-            width: calc(25% - 10px); /* Keep width intact */
-            height: calc(150% - 10px); /* Increase height by 1.5 times */
+            width: calc(50% - 10px); /* Decreased by half */
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
         }
         .image-box img {
             width: 100%;
-            height: 100%;
             border-radius: 10px;
         }
         .question-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            z-index: 1; /* Ensure question box is above images */
+            margin-top: 50px;
+            position: relative;
         }
         .question-box {
             width: 200px;
@@ -59,6 +54,14 @@
             text-align: center;
             padding: 20px;
             position: relative;
+            perspective: 1000px;
+        }
+        .question-box .question-text {
+            transform: rotateY(0deg);
+            transition: transform 0.5s;
+        }
+        .question-box.flip .question-text {
+            transform: rotateY(180deg);
         }
         .question-box h2 {
             margin-top: 0;
@@ -78,70 +81,37 @@
         .question-box button:hover {
             background-color: #FF5F6D; /* Light Red */
         }
-        .love-box {
-            width: 150px; /* Square-shaped box */
-            height: 150px; /* Square-shaped box */
-            background-color: black;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: absolute;
-            top: 100px; /* Adjusted position */
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2; /* Ensure love box is above other content */
-            animation: rotateLoveBox 5s linear infinite;
-        }
-        .welcome-box {
-            margin-bottom: 20px; /* Adjust margin */
-        }
-        .love-box p {
-            font-size: 24px; /* Increased font size */
-        }
-        @keyframes rotateLoveBox {
-            0% {
-                transform: translateX(-50%) rotate(0deg);
-            }
-            100% {
-                transform: translateX(-50%) rotate(360deg);
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="heading welcome-box">Welcome Mownota</h1>
-        <div class="love-box">
-            <p>I Love you Mownota</p>
-        </div>
-    </div>
-    <div class="images-container">
-        <div class="image-box">
-            <img src="https://github.com/sanjidauhin/Hei-Mownota/assets/163626650/4ea8ad8f-ce81-45ba-b490-93b22d6102fc" alt="Image 1">
-        </div>
-        <div class="image-box">
-            <img src="https://github.com/sanjidauhin/Hei-Mownota/assets/163626650/432fc3c7-d4fb-4604-92fb-2377540b0c1e" alt="Image 2">
-        </div>
-        <div class="image-box">
-            <img src="https://github.com/sanjidauhin/Hei-Mownota/assets/163626650/2ad311eb-7fde-4e81-8e83-2cd10a88689e" alt="Image 3">
-        </div>
-        <div class="image-box">
-            <img src="https://github.com/sanjidauhin/Hei-Mownota/assets/163626650/b5394c53-d321-4e38-928b-1e575f2d2256" alt="Image 4">
-        </div>
-    </div>
-    <div class="question-container">
-        <div class="question-box" id="questionBox">
-            <div class="front">
-                <h2>Do you Love Auhin?</h2>
-                <button onclick="nextQuestion('yes')">Yes</button>
-                <button onclick="nextQuestion('no')">No</button>
+        <h1 class="heading">Welcome Mownota</h1>
+        <div class="images-container">
+            <div class="image-box">
+                <img src="https://github.com/sanjidauhin/Hei-Mownota/assets/163626650/4ea8ad8f-ce81-45ba-b490-93b22d6102fc" alt="Image 1">
             </div>
-            <div class="back" style="display: none;">
-                <h2>Will you be her forever?</h2>
-                <button onclick="nextQuestion('yes')">Yes</button>
-                <button onclick="nextQuestion('no')">No</button>
+            <div class="image-box">
+                <img src="https://github.com/sanjidauhin/Hei-Mownota/assets/163626650/432fc3c7-d4fb-4604-92fb-2377540b0c1e" alt="Image 2">
+            </div>
+            <div class="image-box">
+                <img src="https://github.com/sanjidauhin/Hei-Mownota/assets/163626650/2ad311eb-7fde-4e81-8e83-2cd10a88689e" alt="Image 3">
+            </div>
+            <div class="image-box">
+                <img src="https://github.com/sanjidauhin/Hei-Mownota/assets/163626650/b5394c53-d321-4e38-928b-1e575f2d2256" alt="Image 4">
+            </div>
+        </div>
+        <div class="question-container">
+            <div class="question-box" id="questionBox">
+                <div class="question-text front">
+                    <h2>Do you Love Auhin?</h2>
+                    <button onclick="nextQuestion('yes')">Yes</button>
+                    <button onclick="nextQuestion('no')">No</button>
+                </div>
+                <div class="question-text back" style="display: none;">
+                    <h2>Do you Love Auhin?</h2>
+                    <button onclick="nextQuestion('yes')">Yes</button>
+                    <button onclick="nextQuestion('no')">No</button>
+                </div>
             </div>
         </div>
     </div>
@@ -152,44 +122,48 @@
         function nextQuestion(answer) {
             answers.push(answer);
             const questionBox = document.getElementById('questionBox');
-            if (answers.length === 1) {
-                questionBox.innerHTML = `
-                    <div class="front">
-                        <h2>Will you be her forever?</h2>
-                        <button onclick="nextQuestion('yes')">Yes</button>
-                        <button onclick="nextQuestion('no')">No</button>
-                    </div>
-                    <div class="back" style="display: none;">
-                        <h2>Will you be her forever?</h2>
-                        <button onclick="nextQuestion('yes')">Yes</button>
-                        <button onclick="nextQuestion('no')">No</button>
-                    </div>
-                `;
-            } else if (answers.length === 2) {
-                questionBox.innerHTML = `
-                    <div class="front">
-                        <h2>Will you marry her?</h2>
-                        <button onclick="nextQuestion('yes')">Yes</button>
-                        <button onclick="nextQuestion('no')">No</button>
-                    </div>
-                    <div class="back" style="display: none;">
-                        <h2>Will you marry her?</h2>
-                        <button onclick="nextQuestion('yes')">Yes</button>
-                        <button onclick="nextQuestion('no')">No</button>
-                    </div>
-                `;
-            } else {
-                let allYes = answers.every(answer => answer === 'yes');
-                if (allYes) {
-                    window.location.href = "love-page.html";
+            questionBox.classList.toggle('flip');
+            setTimeout(() => {
+                if (answers.length === 1) {
+                    questionBox.innerHTML = `
+                        <div class="question-text front">
+                            <h2>Will you be her forever?</h2>
+                            <button onclick="nextQuestion('yes')">Yes</button>
+                            <button onclick="nextQuestion('no')">No</button>
+                        </div>
+                        <div class="question-text back" style="display: none;">
+                            <h2>Will you be her forever?</h2>
+                            <button onclick="nextQuestion('yes')">Yes</button>
+                            <button onclick="nextQuestion('no')">No</button>
+                        </div>
+                    `;
+                } else if (answers.length === 2) {
+                    questionBox.innerHTML = `
+                        <div class="question-text front">
+                            <h2>Will you marry her?</h2>
+                            <button onclick="nextQuestion('yes')">Yes</button>
+                            <button onclick="nextQuestion('no')">No</button>
+                        </div>
+                        <div class="question-text back" style="display: none;">
+                            <h2>Will you marry her?</h2>
+                            <button onclick="nextQuestion('yes')">Yes</button>
+                            <button onclick="nextQuestion('no')">No</button>
+                        </div>
+                    `;
                 } else {
-                    window.location.href = "hate-page.html";
+                    let allYes = answers.every(answer => answer === 'yes');
+                    if (allYes) {
+                        window.location.href = "love-page.html";
+                    } else {
+                        window.location.href = "hate-page.html";
+                    }
                 }
-            }
+            }, 500);
         }
     </script>
 </body>
 </html>
+
 
 
 
