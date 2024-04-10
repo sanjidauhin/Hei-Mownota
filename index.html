@@ -48,9 +48,9 @@
             z-index: 1; /* Ensure question box is above images */
         }
         .question-box {
-            width: 300px;
-            height: 200px;
-            background-color: #5EDFFF;
+            width: 200px;
+            height: 150px;
+            background-color: #8B0000; /* Deep Red */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             color: white;
@@ -60,6 +60,7 @@
         }
         .question-box h2 {
             margin-top: 0;
+            color: white;
         }
         .question-box button {
             margin: 10px;
@@ -67,18 +68,18 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            background-color: #FF5F6D;
+            background-color: #8B0000; /* Deep Red */
             color: white;
             font-size: 16px;
             transition: background-color 0.3s;
         }
         .question-box button:hover {
-            background-color: #FF8F9D;
+            background-color: #FF5F6D; /* Light Red */
         }
         .love-box {
             width: 200px;
             height: 100px;
-            background-color: #FF5F6D;
+            background-color: black;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             color: white;
@@ -92,7 +93,10 @@
             animation: rotateLoveBox 5s linear infinite;
         }
         .welcome-box {
-            margin-bottom: 50px;
+            margin-bottom: 150px; /* Increased margin */
+        }
+        .love-box p {
+            font-size: 24px; /* Increased font size */
         }
         @keyframes rotateLoveBox {
             0% {
@@ -184,6 +188,7 @@
     </script>
 </body>
 </html>
+
 
 
 
