@@ -34,6 +34,7 @@
             margin: 0;
             color: white;
             font-size: 24px;
+            animation: slideUp 1s ease-in-out infinite alternate;
         }
         .image-box {
             width: 80%;
@@ -62,6 +63,17 @@
                 transform: scale(1);
             }
         }
+        @keyframes slideUp {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -70,10 +82,11 @@
         <div class="love-box">
             <h2>I love you Mownota</h2>
             <div class="image-box">
-                <img src="https://github.com/sanjidauhin/Hei-Mownota/assets/163626650/ad5e7cb6-aa1f-4306-9535-b5c20b347815" alt="Love Image">
+                <img src="love_image.jpg" alt="Love Image">
             </div>
         </div>
     </div>
 </body>
 </html>
+
 
