@@ -20,6 +20,33 @@
             margin-bottom: 20px;
             color: #0066ff; /* Blue */
         }
+        .love-box {
+            width: 200px;
+            height: 200px;
+            background-color: #000; /* Black */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 0 auto 20px;
+            padding: 20px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: rotate 2s linear infinite;
+        }
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        .love-box h2 {
+            margin: 0;
+            color: white;
+            font-size: 24px;
+        }
         .images-container {
             display: flex;
             justify-content: space-between;
@@ -27,22 +54,22 @@
             margin-top: 20px;
         }
         .image-box {
-            width: calc(50% - 10px); /* Decreased by half */
-            background-color: #fff;
+            width: 180px;
+            height: 180px;
+            overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
         }
         .image-box img {
             width: 100%;
-            border-radius: 10px;
+            height: 100%;
+            object-fit: cover;
         }
         .question-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 50px;
-            position: relative;
+            margin-top: -100px; /* Adjusted to lift the question box upward */
         }
         .question-box {
             width: 200px;
@@ -54,14 +81,6 @@
             text-align: center;
             padding: 20px;
             position: relative;
-            perspective: 1000px;
-        }
-        .question-box .question-text {
-            transform: rotateY(0deg);
-            transition: transform 0.5s;
-        }
-        .question-box.flip .question-text {
-            transform: rotateY(180deg);
         }
         .question-box h2 {
             margin-top: 0;
@@ -86,6 +105,9 @@
 <body>
     <div class="container">
         <h1 class="heading">Welcome Mownota</h1>
+        <div class="love-box">
+            <h2>I love you Mownota</h2>
+        </div>
         <div class="images-container">
             <div class="image-box">
                 <img src="https://github.com/sanjidauhin/Hei-Mownota/assets/163626650/4ea8ad8f-ce81-45ba-b490-93b22d6102fc" alt="Image 1">
@@ -102,16 +124,9 @@
         </div>
         <div class="question-container">
             <div class="question-box" id="questionBox">
-                <div class="question-text front">
-                    <h2>Do you Love Auhin?</h2>
-                    <button onclick="nextQuestion('yes')">Yes</button>
-                    <button onclick="nextQuestion('no')">No</button>
-                </div>
-                <div class="question-text back" style="display: none;">
-                    <h2>Do you Love Auhin?</h2>
-                    <button onclick="nextQuestion('yes')">Yes</button>
-                    <button onclick="nextQuestion('no')">No</button>
-                </div>
+                <h2>Do you Love Auhin?</h2>
+                <button onclick="nextQuestion('yes')">Yes</button>
+                <button onclick="nextQuestion('no')">No</button>
             </div>
         </div>
     </div>
@@ -121,50 +136,30 @@
 
         function nextQuestion(answer) {
             answers.push(answer);
-            const questionBox = document.getElementById('questionBox');
-            questionBox.classList.toggle('flip');
-            setTimeout(() => {
-                if (answers.length === 1) {
-                    questionBox.innerHTML = `
-                        <div class="question-text front">
-                            <h2>Will you be her forever?</h2>
-                            <button onclick="nextQuestion('yes')">Yes</button>
-                            <button onclick="nextQuestion('no')">No</button>
-                        </div>
-                        <div class="question-text back" style="display: none;">
-                            <h2>Will you be her forever?</h2>
-                            <button onclick="nextQuestion('yes')">Yes</button>
-                            <button onclick="nextQuestion('no')">No</button>
-                        </div>
-                    `;
-                } else if (answers.length === 2) {
-                    questionBox.innerHTML = `
-                        <div class="question-text front">
-                            <h2>Will you marry her?</h2>
-                            <button onclick="nextQuestion('yes')">Yes</button>
-                            <button onclick="nextQuestion('no')">No</button>
-                        </div>
-                        <div class="question-text back" style="display: none;">
-                            <h2>Will you marry her?</h2>
-                            <button onclick="nextQuestion('yes')">Yes</button>
-                            <button onclick="nextQuestion('no')">No</button>
-                        </div>
-                    `;
+            if (answers.length === 1) {
+                document.getElementById('questionBox').innerHTML = `
+                    <h2>Will you be her forever?</h2>
+                    <button onclick="nextQuestion('yes')">Yes</button>
+                    <button onclick="nextQuestion('no')">No</button>
+                `;
+            } else if (answers.length === 2) {
+                document.getElementById('questionBox').innerHTML = `
+                    <h2>Will you marry her?</h2>
+                    <button onclick="nextQuestion('yes')">Yes</button>
+                    <button onclick="nextQuestion('no')">No</button>
+                `;
+            } else {
+                let allYes = answers.every(answer => answer === 'yes');
+                if (allYes) {
+                    window.location.href = "love-page.html";
                 } else {
-                    let allYes = answers.every(answer => answer === 'yes');
-                    if (allYes) {
-                        window.location.href = "love-page.html";
-                    } else {
-                        window.location.href = "hate-page.html";
-                    }
+                    window.location.href = "hate-page.html";
                 }
-            }, 500);
+            }
         }
     </script>
 </body>
 </html>
-
-
 
 
 
