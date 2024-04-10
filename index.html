@@ -77,8 +77,8 @@
             background-color: #FF5F6D; /* Light Red */
         }
         .love-box {
-            width: calc(12.5% - 10px); /* Half of image box */
-            height: 75px; /* Half of image box */
+            width: calc(25% - 10px); /* Same width as image box */
+            height: 150px; /* Adjust height accordingly */
             background-color: black;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -86,24 +86,24 @@
             text-align: center;
             padding: 10px;
             position: absolute;
-            bottom: 20px; /* Lower position */
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
             z-index: 2; /* Ensure love box is above other content */
             animation: rotateLoveBox 5s linear infinite;
         }
         .welcome-box {
-            margin-bottom: 150px; /* Increased margin */
+            margin-bottom: 20px; /* Adjust margin */
         }
         .love-box p {
             font-size: 24px; /* Increased font size */
         }
         @keyframes rotateLoveBox {
             0% {
-                transform: translateX(-50%) rotate(0deg);
+                transform: translate(-50%, -50%) rotate(0deg);
             }
             100% {
-                transform: translateX(-50%) rotate(360deg);
+                transform: translate(-50%, -50%) rotate(360deg);
             }
         }
     </style>
