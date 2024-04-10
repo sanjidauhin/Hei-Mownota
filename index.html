@@ -87,10 +87,6 @@
             color: white;
         }
         .question-box button {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
             margin: 10px;
             padding: 10px 20px;
             border: none;
@@ -108,11 +104,11 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="heading">য়ামার প্রিয়তমা মৌনতা</h1>
+        <h1 class="heading">আমার প্রিয়তমা মৌনতা</h1>
         <div class="love-box">
             <h2>ভালোবাসি তোমায় রাত্রি</h2>
         </div>
-       div class="images-container">
+        <div class="images-container">
             <div class="image-box">
                 <img src="https://github.com/sanjidauhin/Hei-Mownota/assets/163626650/4ea8ad8f-ce81-45ba-b490-93b22d6102fc" alt="Image 1">
             </div>
@@ -128,9 +124,11 @@
         </div>
         <div class="question-container">
             <div class="question-box" id="questionBox">
-                <h2>ভালোবাসো আমায়?</h2>
-                <button onclick="nextQuestion('yes')">হ্যাঁ</button>
-                <button onclick="nextQuestion('no')">না</button>
+                <h2>ভালোবাসো আমায়??</h2>
+                <div>
+                    <button onclick="nextQuestion('yes')">হ্যাঁ</button>
+                    <button onclick="nextQuestion('no')">না</button>
+                </div>
             </div>
         </div>
     </div>
@@ -143,14 +141,18 @@
             if (answers.length === 1) {
                 document.getElementById('questionBox').innerHTML = `
                     <h2>সারাজীবনের জন্য আমার হবে?</h2>
-                    <button onclick="nextQuestion('yes')">হ্যাঁ</button>
-                    <button onclick="nextQuestion('no')">না</button>
+                    <div>
+                        <button onclick="nextQuestion('yes')">হ্যাঁ</button>
+                        <button onclick="nextQuestion('no')">না</button>
+                    </div>
                 `;
             } else if (answers.length === 2) {
                 document.getElementById('questionBox').innerHTML = `
                     <h2>বিয়ে করবে আমায়?</h2>
-                    <button onclick="nextQuestion('yes')">কবুল</button>
-                    <button onclick="nextQuestion('no')">ভাতার আছে আরো</button>
+                    <div>
+                        <button onclick="nextQuestion('yes')">কবুল</button>
+                        <button onclick="nextQuestion('no')">্ভাতার আছে আরো</button>
+                    </div>
                 `;
             } else {
                 let allYes = answers.every(answer => answer === 'yes');
@@ -164,6 +166,7 @@
     </script>
 </body>
 </html>
+
 
 
 
