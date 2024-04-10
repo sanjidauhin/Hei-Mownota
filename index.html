@@ -181,7 +181,13 @@
                 }
             }
         }
+
+        // Show the question container after the page is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.question-container').style.display = 'block';
+        });
     </script>
 </body>
 </html>
+
 
