@@ -140,12 +140,12 @@
         <div class="question-box">
             <div class="question-box-inner">
                 <div class="front">
-                    <h2>Do you Love Mownota?</h2>
+                    <h2>Do you Love Auhin?</h2>
                     <button onclick="nextQuestion('yes')">Yes</button>
                     <button onclick="nextQuestion('no')">No</button>
                 </div>
                 <div class="back" style="display: none;">
-                    <h2>Do you Love Mownota?</h2>
+                    <h2>Do you Love Auhin?</h2>
                     <button onclick="nextQuestion('yes')">Yes</button>
                     <button onclick="nextQuestion('no')">No</button>
                 </div>
@@ -163,6 +163,28 @@
                 setTimeout(() => {
                     document.querySelector('.question-box .back').style.display = 'block';
                 }, 600); // Flip animation time
+            } else if (answers.length === 2) {
+                document.querySelector('.question-box .front').innerHTML = `
+                    <h2>Will you be her forever?</h2>
+                    <button onclick="nextQuestion('yes')">Yes</button>
+                    <button onclick="nextQuestion('no')">No</button>
+                `;
+                document.querySelector('.question-box .back').innerHTML = `
+                    <h2>Will you be her forever?</h2>
+                    <button onclick="nextQuestion('yes')">Yes</button>
+                    <button onclick="nextQuestion('no')">No</button>
+                `;
+            } else if (answers.length === 3) {
+                document.querySelector('.question-box .front').innerHTML = `
+                    <h2>Will you marry her?</h2>
+                    <button onclick="nextQuestion('yes')">Yes</button>
+                    <button onclick="nextQuestion('no')">No</button>
+                `;
+                document.querySelector('.question-box .back').innerHTML = `
+                    <h2>Will you marry her?</h2>
+                    <button onclick="nextQuestion('yes')">Yes</button>
+                    <button onclick="nextQuestion('no')">No</button>
+                `;
             } else {
                 let allYes = answers.every(answer => answer === 'yes');
                 if (allYes) {
@@ -175,6 +197,7 @@
     </script>
 </body>
 </html>
+
 
 
 
