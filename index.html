@@ -57,17 +57,6 @@
             text-align: center;
             padding: 20px;
             position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.6s;
-        }
-        .question-box.flipped {
-            transform: rotateY(180deg);
-        }
-        .question-box-inner {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
         }
         .question-box h2 {
             margin-top: 0;
@@ -138,17 +127,15 @@
     </div>
     <div class="question-container">
         <div class="question-box">
-            <div class="question-box-inner">
-                <div class="front">
-                    <h2>Do you Love Auhin?</h2>
-                    <button onclick="nextQuestion('yes')">Yes</button>
-                    <button onclick="nextQuestion('no')">No</button>
-                </div>
-                <div class="back" style="display: none;">
-                    <h2>Do you Love Auhin?</h2>
-                    <button onclick="nextQuestion('yes')">Yes</button>
-                    <button onclick="nextQuestion('no')">No</button>
-                </div>
+            <div class="front">
+                <h2>Do you Love Auhin?</h2>
+                <button onclick="nextQuestion('yes')">Yes</button>
+                <button onclick="nextQuestion('no')">No</button>
+            </div>
+            <div class="back" style="display: none;">
+                <h2>Do you Love Auhin?</h2>
+                <button onclick="nextQuestion('yes')">Yes</button>
+                <button onclick="nextQuestion('no')">No</button>
             </div>
         </div>
     </div>
@@ -197,6 +184,7 @@
     </script>
 </body>
 </html>
+
 
 
 
