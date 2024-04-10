@@ -50,7 +50,7 @@
         .question-box {
             width: 200px;
             height: 150px;
-            background-color: #8B0000; /* Deep Red */
+            background-color: #8B0000; /* Blood Red */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             color: white;
@@ -68,7 +68,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            background-color: #8B0000; /* Deep Red */
+            background-color: #8B0000; /* Blood Red */
             color: white;
             font-size: 16px;
             transition: background-color 0.3s;
@@ -77,8 +77,8 @@
             background-color: #FF5F6D; /* Light Red */
         }
         .love-box {
-            width: 200px;
-            height: 100px;
+            width: calc(12.5% - 10px); /* Half of image box */
+            height: 75px; /* Half of image box */
             background-color: black;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -86,7 +86,7 @@
             text-align: center;
             padding: 10px;
             position: absolute;
-            top: 50px;
+            bottom: 20px; /* Lower position */
             left: 50%;
             transform: translateX(-50%);
             z-index: 2; /* Ensure love box is above other content */
