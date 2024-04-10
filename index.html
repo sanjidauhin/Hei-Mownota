@@ -14,12 +14,13 @@
         .container {
             text-align: center;
             margin-top: 50px;
+            position: relative;
         }
         .heading {
             margin-bottom: 20px;
         }
         .images-container {
-            position: fixed;
+            position: absolute;
             top: 0;
             right: 0;
             bottom: 0;
@@ -27,6 +28,7 @@
             display: flex;
             justify-content: space-between;
             padding: 20px;
+            z-index: -1; /* Ensure images are below other content */
         }
         .image-box {
             width: calc(25% - 10px);
@@ -43,11 +45,12 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            z-index: 1; /* Ensure question box is above images */
         }
         .question-box {
             width: 300px;
             height: 200px;
-            background-color: #FF5F6D;
+            background-color: #5EDFFF;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             color: white;
@@ -75,13 +78,13 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            background-color: #5EDFFF;
+            background-color: #FF5F6D;
             color: white;
             font-size: 16px;
             transition: background-color 0.3s;
         }
         .question-box button:hover {
-            background-color: #4AB9EB;
+            background-color: #FF8F9D;
         }
         .love-box {
             width: 300px;
