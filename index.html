@@ -126,7 +126,7 @@
         </div>
     </div>
     <div class="question-container">
-        <div class="question-box">
+        <div class="question-box" id="questionBox">
             <div class="front">
                 <h2>Do you Love Auhin?</h2>
                 <button onclick="nextQuestion('yes')">Yes</button>
@@ -145,23 +145,34 @@
 
         function nextQuestion(answer) {
             answers.push(answer);
+            const questionBox = document.getElementById('questionBox');
             if (answers.length === 1) {
-                document.querySelector('.question-box').classList.add('flipped');
-                setTimeout(() => {
-                    document.querySelector('.question-box .back').style.display = 'block';
-                }, 600); // Flip animation time
+                questionBox.innerHTML = `
+                    <div class="front">
+                        <h2>Will you be her forever?</h2>
+                        <button onclick="nextQuestion('yes')">Yes</button>
+                        <button onclick="nextQuestion('no')">No</button>
+                    </div>
+                    <div class="back" style="display: none;">
+                        <h2>Will you be her forever?</h2>
+                        <button onclick="nextQuestion('yes')">Yes</button>
+                        <button onclick="nextQuestion('no')">No</button>
+                    </div>
+                `;
             } else if (answers.length === 2) {
-                document.querySelector('.question-box .front').innerHTML = `
-                    <h2>Will you be her forever?</h2>
-                    <button onclick="nextQuestion('yes')">Yes</button>
-                    <button onclick="nextQuestion('no')">No</button>
+                questionBox.innerHTML = `
+                    <div class="front">
+                        <h2>Will you marry her?</h2>
+                        <button onclick="nextQuestion('yes')">Yes</button>
+                        <button onclick="nextQuestion('no')">No</button>
+                    </div>
+                    <div class="back" style="display: none;">
+                        <h2>Will you marry her?</h2>
+                        <button onclick="nextQuestion('yes')">Yes</button>
+                        <button onclick="nextQuestion('no')">No</button>
+                    </div>
                 `;
-                document.querySelector('.question-box .back').innerHTML = `
-                    <h2>Will you marry her?</h2>
-                    <button onclick="nextQuestion('yes')">Yes</button>
-                    <button onclick="nextQuestion('no')">No</button>
-                `;
-            } else if (answers.length === 3) {
+            } else {
                 let allYes = answers.every(answer => answer === 'yes');
                 if (allYes) {
                     window.location.href = "love-page.html";
@@ -173,6 +184,7 @@
     </script>
 </body>
 </html>
+
 
 
 
