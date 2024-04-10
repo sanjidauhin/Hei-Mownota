@@ -86,9 +86,9 @@
             text-align: center;
             padding: 10px;
             position: absolute;
-            top: 50%;
+            top: 100px; /* Adjusted position */
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
             z-index: 2; /* Ensure love box is above other content */
             animation: rotateLoveBox 5s linear infinite;
         }
@@ -100,10 +100,10 @@
         }
         @keyframes rotateLoveBox {
             0% {
-                transform: translate(-50%, -50%) rotate(0deg);
+                transform: translateX(-50%) rotate(0deg);
             }
             100% {
-                transform: translate(-50%, -50%) rotate(360deg);
+                transform: translateX(-50%) rotate(360deg);
             }
         }
     </style>
@@ -188,6 +188,7 @@
     </script>
 </body>
 </html>
+
 
 
 
